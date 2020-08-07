@@ -1,0 +1,345 @@
+{
+  "version": 1,
+  "projects": {
+    "spa-first-app": {
+      "root": "apps/spa-first-app",
+      "sourceRoot": "apps/spa-first-app/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/spa-first-app",
+            "index": "apps/spa-first-app/src/index.html",
+            "main": "apps/spa-first-app/src/main.tsx",
+            "polyfills": "apps/spa-first-app/src/polyfills.ts",
+            "tsConfig": "apps/spa-first-app/tsconfig.app.json",
+            "assets": [
+              "apps/spa-first-app/src/favicon.ico",
+              "apps/spa-first-app/src/assets"
+            ],
+            "styles": ["apps/spa-first-app/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/spa-first-app/src/environments/environment.ts",
+                  "with": "apps/spa-first-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "spa-first-app:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "spa-first-app:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/spa-first-app/tsconfig.app.json",
+              "apps/spa-first-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/spa-first-app/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/spa-first-app/jest.config.js",
+            "tsConfig": "apps/spa-first-app/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "spa-first-app-e2e": {
+      "root": "apps/spa-first-app-e2e",
+      "sourceRoot": "apps/spa-first-app-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/spa-first-app-e2e/cypress.json",
+            "tsConfig": "apps/spa-first-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "spa-first-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "spa-first-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": ["apps/spa-first-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/spa-first-app-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "spa-second-app": {
+      "root": "apps/spa-second-app",
+      "sourceRoot": "apps/spa-second-app/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/spa-second-app",
+            "index": "apps/spa-second-app/src/index.html",
+            "main": "apps/spa-second-app/src/main.tsx",
+            "polyfills": "apps/spa-second-app/src/polyfills.ts",
+            "tsConfig": "apps/spa-second-app/tsconfig.app.json",
+            "assets": [
+              "apps/spa-second-app/src/favicon.ico",
+              "apps/spa-second-app/src/assets"
+            ],
+            "styles": ["apps/spa-second-app/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/spa-second-app/src/environments/environment.ts",
+                  "with": "apps/spa-second-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "spa-second-app:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "spa-second-app:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/spa-second-app/tsconfig.app.json",
+              "apps/spa-second-app/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/spa-second-app/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/spa-second-app/jest.config.js",
+            "tsConfig": "apps/spa-second-app/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "spa-second-app-e2e": {
+      "root": "apps/spa-second-app-e2e",
+      "sourceRoot": "apps/spa-second-app-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/spa-second-app-e2e/cypress.json",
+            "tsConfig": "apps/spa-second-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "spa-second-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "spa-second-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": ["apps/spa-second-app-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/spa-second-app-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "methods": {
+      "root": "libs/methods",
+      "sourceRoot": "libs/methods/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/methods/tsconfig.lib.json",
+              "libs/methods/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/methods/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/methods/jest.config.js",
+            "tsConfig": "libs/methods/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui": {
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/ui/tsconfig.lib.json",
+              "libs/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "tsConfig": "libs/ui/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      },
+      "component": {
+        "style": "scss"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nx-plugin": {
+      "plugin": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "spa-first-app"
+}

@@ -1,0 +1,46 @@
+{
+  "npmScope": "spa",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "spa-first-app": {
+      "tags": []
+    },
+    "spa-first-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["spa-first-app"]
+    },
+    "spa-second-app": {
+      "tags": []
+    },
+    "spa-second-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["spa-second-app"]
+    },
+    "methods": {
+      "tags": []
+    },
+    "ui": {
+      "tags": []
+    }
+  }
+}
