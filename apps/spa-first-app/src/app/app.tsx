@@ -2,7 +2,7 @@ import React from 'react';
 
 import './app.scss';
 
-import { getRandomNum,UiProps } from '@spa/methods'
+import { getRandomNum } from '@spa/methods'
 import {Ui} from '@spa/ui'
 export const App = () => {
   /*
